@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.css';
-import Card from './components/Card';
+import Header from './components/Header';
+import Home from './components/Home';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
@@ -15,19 +16,8 @@ export default function App() {
 
   return (
     <div className='App'>
-      {movieList.map(
-        ({ id, title, overview, vote_average, popularity, poster_path }) => (
-          <Card
-            key={id}
-            title={title}
-            overview={overview}
-            vote_average={vote_average}
-            popularity={popularity}
-            id={id}
-            poster_path={poster_path}
-          />
-        )
-      )}
+      <Header />
+      <Home movieList={movieList} />
     </div>
   );
 }

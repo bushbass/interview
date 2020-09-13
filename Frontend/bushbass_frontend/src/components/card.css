@@ -1,11 +1,11 @@
 .card {
   box-shadow: 0 0 30px rgba(255, 0, 34, 0.452);
-  margin: 46px;
+  margin: 26px;
   padding: 6px;
   border-radius: 6px;
-  width: 25vw;
+  width: 20%;
 }
 
 .card img {
-  width: 90%;
+  width: 70%;
 }
