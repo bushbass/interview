@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './header.css';
 import netflixN from './netflixN.png';
 import netflixNoN from './netflixLogo-noN.png';
@@ -11,7 +13,15 @@ function Header() {
       <p className='not-netflix'>
         *Totally not a ripoff of Netflix, in fact we've never even heard of
         Netlfix
-      </p>
+      </p>{' '}
+      <nav>
+        <div className='nav-item'>
+          <Link to='/'>Home</Link>
+        </div>
+        <div className='search'>
+          <Link to='/search'>Search</Link>
+        </div>
+      </nav>
     </header>
   );
 }

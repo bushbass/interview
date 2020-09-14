@@ -20,6 +20,17 @@ header {
 h1 {
   color: rgb(223, 255, 223);
 }
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: brown;
+}
+nav a {
+  margin: 15px 15px;
+  text-decoration: none;
+  color: rgb(219, 219, 219);
+}
 @keyframes example {
   from {
   }
