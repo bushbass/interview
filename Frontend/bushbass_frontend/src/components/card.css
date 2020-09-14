@@ -1,9 +1,11 @@
 .card {
   box-shadow: 0 0 30px rgba(255, 0, 34, 0.452);
-  margin: 26px;
+  margin: 16px;
   padding: 6px;
   border-radius: 6px;
   width: 20%;
+  text-align: center;
+  /* flex-basis: 10%; */
 }
 
 .card img {

@@ -1,16 +1,17 @@
 import React from 'react';
 import './header.css';
-
+import netflixN from './netflixN.png';
+import netflixNoN from './netflixLogo-noN.png';
 function Header() {
   return (
-    <header className='tootip'>
-      <div class='tooltip'>
-        <h1>Zetflix</h1>
-        <span class='tooltiptext'>
-          Totally not a ripoff of Netflix, in fact we've never even heard of
-          Netlfix
-        </span>
-      </div>
+    <header>
+      <img className='netflixN netflix' src={netflixN} alt='' />
+      <img className='netflix' src={netflixNoN} alt='' />
+      <h1>Find your favorite movies</h1>
+      <p className='not-netflix'>
+        *Totally not a ripoff of Netflix, in fact we've never even heard of
+        Netlfix
+      </p>
     </header>
   );
 }
