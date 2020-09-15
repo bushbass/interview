@@ -14,7 +14,10 @@ function Movie() {
   }, [connectionString]);
 
   return (
+
     <div className='single-movie-card'>
+<<<<<< dyanmic-routing
+
       {console.log(currentMovie)}
       <h2>
         {currentMovie.title} -{' '}
