@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import './movie.css';
 
 function Movie() {
   const [currentMovie, setCurrentMovie] = useState({});
@@ -13,11 +14,21 @@ function Movie() {
   }, [connectionString]);
 
   return (
-    <div>
-      <p>movie component!</p>
-      <h3>ID: {id}</h3>
+
+    <div className='single-movie-card'>
+<<<<<< dyanmic-routing
+
       {console.log(currentMovie)}
-      <p>{currentMovie.title}</p>
+      <h2>
+        {currentMovie.title} -{' '}
+        {currentMovie.release_date
+          ? currentMovie.release_date.substring(0, 4)
+          : currentMovie.release_date}
+      </h2>
+      <img
+        src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
+        alt={currentMovie.title}
+      />
       <p>{currentMovie.overview}</p>
     </div>
   );
