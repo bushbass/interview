@@ -30,6 +30,7 @@ const Search = ({ movieList }) => {
         </div>
       </div>
       <div className='card-display-area'>
+        {filteredList.length < 1 && <h2>No movies match your search</h2>}
         {filteredList.map(
           ({ id, title, overview, vote_average, popularity, poster_path }) => (
             <Card
