@@ -15,7 +15,6 @@ function Movie() {
 
   return (
     <div className='single-movie-card'>
-      {console.log(currentMovie)}
       <h2>
         {currentMovie.title} -{' '}
         {currentMovie.release_date

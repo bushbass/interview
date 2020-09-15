@@ -17,7 +17,6 @@ const Search = ({ movieList }) => {
 
   return (
     <main className='search-main'>
-      {console.log(filteredList.map((movie) => movie.title))}
       <div className='search-area'>
         <h2>Search within the top 20</h2>
         <div>

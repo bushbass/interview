@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
-
 import './card.css';
 
 const Card = ({
@@ -13,8 +11,6 @@ const Card = ({
   poster_path,
 }) => {
   return (
-
-    // <div className='card' onClick={() => console.log(id)}>
     <div className='card'>
       <Link to={`/${id}`}>
         <h1>{title}</h1>
@@ -30,7 +26,6 @@ const Card = ({
             ' Click the poster for more info!'}
         </p>
       </Link>
-
     </div>
   );
 };

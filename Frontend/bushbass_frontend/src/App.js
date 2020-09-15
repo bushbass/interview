@@ -25,6 +25,7 @@ export default function App() {
           <Route path='/search'>
             <Search movieList={movieList} />
           </Route>
+
           <Route path='/:id' children={<Movie />} />
 
           <Route path='/'>
