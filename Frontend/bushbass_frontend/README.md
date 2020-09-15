@@ -1,4 +1,12 @@
+## How to run Alex's app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+To run it -
+*clone and enter the directory
+*npm install
+*npm start
+*browser will open on port 3000
 
 ## Available Scripts
 
