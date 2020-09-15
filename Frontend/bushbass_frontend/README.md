@@ -10,6 +10,10 @@ To run it -
 1. npm start
 1. browser will open on port 3000
 
+## Demo
+
+Here is a link to a [Working Demo](https://loving-gates-f04ef5.netlify.app)
+
 ## Available Scripts
 
 In the project directory, you can run:
