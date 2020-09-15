@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './home.css';
+import './search.css';
 
 const Search = ({ movieList }) => {
   const [inputText, setInputText] = useState('');
@@ -15,14 +16,18 @@ const Search = ({ movieList }) => {
   );
 
   return (
-    <main>
+    <main className='search-main'>
       {console.log(filteredList.map((movie) => movie.title))}
-      <h2>search goes here</h2>
-      <input
-        type='text'
-        value={inputText}
-        onChange={(Event) => setInputText(Event.target.value)}
-      />
+      <div className='search-area'>
+        <h2>Search within the top 20</h2>
+        <div>
+          <input
+            type='text'
+            value={inputText}
+            onChange={(Event) => setInputText(Event.target.value)}
+          />
+        </div>
+      </div>
       <div className='card-display-area'>
         {filteredList.map(
           ({ id, title, overview, vote_average, popularity, poster_path }) => (
