@@ -14,7 +14,7 @@ function Movie() {
 
   return (
     <div>
-      <p>movie component</p>
+      <p>movie component!</p>
       <h3>ID: {id}</h3>
       {console.log(currentMovie)}
       <p>{currentMovie.title}</p>

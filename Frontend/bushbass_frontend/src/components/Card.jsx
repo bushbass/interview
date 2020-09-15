@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './card.css';
-
-//https://api.themoviedb.org/3/configuration?api_key=dff2ace9d4fe143fc9aad06522638b5c
 
 const Card = ({
   title,
@@ -11,18 +9,8 @@ const Card = ({
   id,
   poster_path,
 }) => {
-  // const [imageConfig, setImageConfig] = useState({});
-  useEffect(() => {
-    fetch(
-      'https://api.themoviedb.org/3/configuration?api_key=dff2ace9d4fe143fc9aad06522638b5c'
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
-
   return (
     <div className='card' onClick={() => console.log(id)}>
-      {/* {console.log(imageConfig)} */}
       <h1>{title}</h1>
       <h3>{popularity}</h3>
       <h4>Average User Score: {vote_average}</h4>
