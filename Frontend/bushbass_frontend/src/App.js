@@ -5,6 +5,7 @@ import './index.css';
 import Header from './components/Header';
 import Home from './components/Home';
 import Search from './components/Search';
+import Movie from './components/Movie';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
@@ -24,6 +25,7 @@ export default function App() {
           <Route path='/search'>
             <Search movieList={movieList} />
           </Route>
+          <Route path='/:id' children={<Movie />} />
 
           <Route path='/'>
             <Home movieList={movieList} />
