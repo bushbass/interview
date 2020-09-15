@@ -3,10 +3,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To run it -
-*clone and enter the directory
-*npm install
-*npm start
-*browser will open on port 3000
+
+1. clone and enter the directory
+1. npm install
+1. npm start
+1. browser will open on port 3000
 
 ## Available Scripts
 
