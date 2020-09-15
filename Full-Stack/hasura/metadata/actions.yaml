@@ -1,0 +1,13 @@
+actions:
+- name: createTempUser
+  definition:
+    kind: synchronous
+    handler: http://host.docker.internal:1234/
+  permissions:
+  - role: anonymous
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+  - name: CreateTempUserOutput
+  scalars: []

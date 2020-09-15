@@ -1,0 +1,21 @@
+{
+  "name": "create-temp-user",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michael Joseph",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "micro",
+    "dev:start": "micro-dev -p 1234"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  },
+  "dependencies": {
+    "json-format": "^1.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "micro": "^9.3.4",
+    "node-fetch": "^2.6.1"
+  }
+}

@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres:12
+    ports:
+    - "5432:5432"
+    restart: always
+    volumes:
+    - db_data_full_stack:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+  graphql-engine:
+    image: hasura/graphql-engine:v1.3.0-beta.2
+    ports:
+    - "8080:8080"
+    depends_on:
+    - "postgres"
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgrespassword@postgres:5432/postgres
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ADMIN_SECRET: HVVTa3PSDocVJvbliFlu
+      HASURA_GRAPHQL_UNAUTHORIZED_ROLE: anonymous
+      HASURA_GRAPHQL_JWT_SECRET: '{"type": "RS256", "key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6rw5sUoerJPyfTRMXSmi\nmbX2r6YHuIFDHU9+vcVE0enM8xFYQpjgC1sCObcqhg6zMkNunVqeE1MI00iVyAE4\nX49lla/6o3U+RsPZTeDinf44SPyyuRqW3eIb7gXKncgcO+XOf+hGJGins2D7HXZq\nn4g60Ur8bcipVgM0iHAmkW4lS8bVgfCLcItpHyNaFKIOtTdQJ4Vu3sSFZS78tFYj\nupvYyQ+xSCqYao8bpVVnTzx3Kf716TtRxzYxhgjAicJbW3N9S6MlX9prA9oCTAiK\nq5NwkcFvseh7NYFaQiVvbzGP+EP6tPRYivtE/y8hs65i5REbIyF6I6Sk9PWLNWKx\n8QIDAQAB\n-----END PUBLIC KEY-----"}'
+volumes:
+  db_data_full_stack:
