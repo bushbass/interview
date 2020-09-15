@@ -1,0 +1,43 @@
+header {
+  background-color: rgba(255, 0, 34, 0.452);
+  color: rgb(219, 219, 219);
+}
+.logo-area {
+  background-color: black;
+}
+.netflix {
+  height: 85px;
+}
+.netflixN {
+  transition: 3s;
+  /* transform: rotate(90deg) scaleX(1.72) translateY(30px); */
+  animation-name: example;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.not-netflix {
+  font-size: 0.6rem;
+}
+h1 {
+  color: rgb(223, 255, 223);
+}
+nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  background-color: brown;
+}
+a {
+  margin: 15px 15px;
+  text-decoration: none;
+  color: rgb(219, 219, 219);
+}
+@keyframes example {
+  from {
+  }
+  to {
+    transform: rotate(90deg) scaleX(1.75) scaleY(0.5) translateY(-10px);
+  }
+}
