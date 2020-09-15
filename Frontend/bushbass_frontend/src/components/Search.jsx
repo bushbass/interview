@@ -10,7 +10,9 @@ const Search = ({ movieList }) => {
   useEffect(
     () =>
       setFilteredList(
-        movieList.filter((movie) => movie.title.includes(inputText))
+        movieList.filter((movie) =>
+          movie.title.toLowerCase().includes(inputText.toLowerCase())
+        )
       ),
     [movieList, inputText]
   );
