@@ -1,0 +1,15 @@
+query userByPk($id: Int!) {
+  user_by_pk(id: $id) {
+    id
+    favorite_movies {
+      movie {
+        details {
+          title
+          release_date
+          poster_path
+          id
+        }
+      }
+    }
+  }
+}

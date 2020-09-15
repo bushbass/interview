@@ -1,0 +1,10 @@
+type Query {
+  getMovieDetails(id: Int!): MovieDetails!
+}
+
+type MovieDetails {
+  id: Int!
+  title: String!
+  release_date: String!
+  poster_path: String!
+}
