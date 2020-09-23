@@ -14,7 +14,7 @@ function Movie() {
   }, [connectionString]);
 
   return (
-    <div className='single-movie-card'>
+    <div className='single-movie-card card'>
       <h2>
         {currentMovie.title} -{' '}
         {currentMovie.release_date
@@ -25,7 +25,7 @@ function Movie() {
         src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
         alt={currentMovie.title}
       />
-      <p>{currentMovie.overview}</p>
+      <p className='single-movie-overview'>{currentMovie.overview}</p>
     </div>
   );
 }

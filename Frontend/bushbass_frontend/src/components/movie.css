@@ -1,7 +1,24 @@
 .single-movie-card {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 .single-movie-card img {
-  width: 200px;
+  width: 80%;
+  border-radius: 3px;
+  padding: 10px;
+}
+.single-movie-overview {
+  padding: 10px;
+}
+
+@media screen and (min-width: 550px) {
+  .single-movie-card {
+    display: flex;
+  }
+  .single-movie-card img {
+    width: 80%;
+    border-radius: 3px;
+    padding: 10px;
+    object-fit: contain;
+  }
 }
