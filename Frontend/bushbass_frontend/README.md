@@ -13,6 +13,8 @@ To run it -
 ## Demo
 
 Here is a link to a [Working Demo](https://loving-gates-f04ef5.netlify.app)
+I made some adjustments to the original. Mainly the formatting of the individual movie card page
+[Updated Demo](https://cranky-morse-fe63dc.netlify.app/)
 
 ## Available Scripts
 
