@@ -1,0 +1,98 @@
+- table:
+    schema: public
+    name: movie
+  array_relationships:
+  - name: favorited_by
+    using:
+      foreign_key_constraint_on:
+        column: movie_id
+        table:
+          schema: public
+          name: user_movie
+  remote_relationships:
+  - definition:
+      remote_field:
+        getMovieDetails:
+          arguments:
+            id: $id
+      hasura_fields:
+      - id
+      remote_schema: movie-api
+    name: details
+  insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+      - id
+      backend_only: false
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - id
+      filter: {}
+  update_permissions:
+  - role: user
+    permission:
+      columns:
+      - id
+      filter: {}
+      check: null
+- table:
+    schema: public
+    name: user
+  array_relationships:
+  - name: favorite_movies
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: user_movie
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - created_at
+      - id
+      - name
+      filter:
+        id:
+          _eq: X-Hasura-User-Id
+- table:
+    schema: public
+    name: user_movie
+  object_relationships:
+  - name: movie
+    using:
+      foreign_key_constraint_on: movie_id
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+  insert_permissions:
+  - role: user
+    permission:
+      check:
+        user_id:
+          _eq: X-Hasura-User-Id
+      columns:
+      - movie_id
+      - user_id
+      backend_only: false
+  select_permissions:
+  - role: user
+    permission:
+      columns:
+      - created_at
+      - movie_id
+      - user_id
+      filter:
+        user_id:
+          _eq: X-Hasura-User-Id
+  delete_permissions:
+  - role: user
+    permission:
+      filter:
+        user_id:
+          _eq: X-Hasura-User-Id

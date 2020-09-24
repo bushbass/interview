@@ -40,6 +40,10 @@ button {
   padding: 10px;
 }
 
+
+}
+
+
 .App {
   text-align: center;
 }
@@ -137,4 +141,22 @@ button {
 .page-nav span {
   font-size: 28px;
   color: #35FFBC;
+}
+.movie-box-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-box {
+  margin: 20px 50px;
+  max-width: 300px;
+  cursor: pointer;
+}
+.movie-box img:hover {
+  transform: scale(1.05);
+  transition: transform .2s;
+}
+.movie-box h2 {
+  margin: 0;
 }

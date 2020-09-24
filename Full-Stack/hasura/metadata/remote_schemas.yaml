@@ -1,0 +1,4 @@
+- name: movie-api
+  definition:
+    url: http://host.docker.internal:4000/
+    timeout_seconds: 10

@@ -1,0 +1,12 @@
+mutation insertMovieOne($userId: Int, $movieId: Int) {
+  insert_movie_one(object: {favorited_by: {data: {user_id: $userId}}, id: $movieId}, on_conflict: {constraint: movie_pkey, update_columns: id}) {
+    id
+    details {
+      overview
+      poster_path
+      release_date
+      title
+      vote_average
+    }
+  }
+}

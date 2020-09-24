@@ -1,0 +1,29 @@
+{
+  "name": "full-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Michael Joseph",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": ["Full-Stack/*"]
+  },
+  "scripts": {
+    "dev": "concurrently -p \"{command}--{time}\" -t \"mm:ss\" \"yarn:dev:start*\"",
+    "dev:start:hasura": "cd Full-Stack/hasura && docker-compose up -d",
+    "dev:start:movie-api": "cd Full-Stack/movie-api && yarn run dev:start",
+    "dev:start:create-temp-user": "cd Full-Stack/create-temp-user && yarn run dev:start",
+    "dev:start:frontend-client": "cd Full-Stack/frontend-client && yarn run serve",
+    "open:hasura-console": "cd Full-Stack/hasura && hasura console",
+    "hasura:check-migrations": "cd Full-Stack/hasura && hasura migrate status",
+    "hasura:export-metadata": "cd Full-Stack/hasura && hasura metadata export",
+    "hasura:apply-migrations": "cd Full-Stack/hasura && hasura migrate apply",
+    "hasura:apply-metadata": "cd Full-Stack/hasura && hasura metadata apply",
+    "dev:prelaunch:kill-process": "fkill -f :9230"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "fkill-cli": "^6.0.1",
+    "hasura-cli": "^1.3.1"
+  }
+}

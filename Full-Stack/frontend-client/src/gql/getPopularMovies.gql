@@ -1,0 +1,10 @@
+query getPopularMovies {
+  getPopularMovies {
+    id
+    overview
+    poster_path
+    release_date
+    title
+    vote_average
+  }
+}
