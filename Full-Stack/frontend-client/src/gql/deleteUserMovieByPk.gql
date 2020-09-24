@@ -1,0 +1,7 @@
+mutation deleteUserMovieByPk($movieId: Int!, $userId: Int!) {
+  delete_user_movie_by_pk(movie_id: $movieId, user_id: $userId) {
+    movie {
+      id
+    }
+  }
+}

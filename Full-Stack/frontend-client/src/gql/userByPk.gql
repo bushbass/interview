@@ -3,11 +3,13 @@ query userByPk($id: Int!) {
     id
     favorite_movies {
       movie {
+        id
         details {
           title
           release_date
+          overview
+          vote_average
           poster_path
-          id
         }
       }
     }

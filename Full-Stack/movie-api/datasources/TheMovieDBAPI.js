@@ -15,6 +15,15 @@ class TheMovieDBAPI extends RESTDataSource {
       }
     )
   }
+
+  async getPopularMovies() {
+    return this.get(
+      `movie/popular`,
+      { 
+        api_key: process.env.THE_MOVIE_DB_KEY
+      }
+    ).then(x => x.results)
+  }
 }
 
 module.exports = TheMovieDBAPI;

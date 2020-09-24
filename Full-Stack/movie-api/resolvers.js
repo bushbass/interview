@@ -4,6 +4,12 @@ module.exports = {
       _,
       { id },
       { dataSources: { theMovieDBAPI } }
-    ) => theMovieDBAPI.getMovieDetails(id)
+    ) => theMovieDBAPI.getMovieDetails(id),
+    
+    getPopularMovies: (
+      _,
+      { id },
+      { dataSources: { theMovieDBAPI } }
+    ) => theMovieDBAPI.getPopularMovies()
   }
 }
