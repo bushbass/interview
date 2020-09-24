@@ -14,18 +14,30 @@ function Movie() {
   }, [connectionString]);
 
   return (
-    <div className='single-movie-card card'>
-      <h2>
-        {currentMovie.title} -{' '}
-        {currentMovie.release_date
-          ? currentMovie.release_date.substring(0, 4)
-          : currentMovie.release_date}
-      </h2>
-      <img
-        src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
-        alt={currentMovie.title}
-      />
-      <p className='single-movie-overview'>{currentMovie.overview}</p>
+    <div className='single-movie-card-container'>
+      <div className='single-movie-card-title'>
+        <h2>
+          {currentMovie.title} -{' '}
+          {currentMovie.release_date
+            ? currentMovie.release_date.substring(0, 4)
+            : currentMovie.release_date}
+        </h2>
+      </div>
+      <div className='single-movie-main-container'>
+        <div>
+          <img
+            className='single-movie-image'
+            src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
+            alt={currentMovie.title}
+          />
+        </div>
+        <div className='single-movie-overview-container'>
+          <p className='single-movie-overview'>{currentMovie.overview}</p>
+          <p className='single-movie-overview'>
+            Average User Score: {currentMovie.vote_average}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
