@@ -1,0 +1,23 @@
+[
+	{
+		"title": "About",
+		"path": "about",
+		"banner": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg",
+		"content": {
+			"description": "test nly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"seconddescription": "nly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"mission": "nly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"purpose": "Wnly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"innovation": "nly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"quality": "We nly five centucluding versions of Lorem Ipsum.roduce the highest quality work and products",
+			"experience": "Wnly five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"video": "https://www.youtube.com/embed/-jIcMflrgv4",
+			"videotext": "Inspiration to start your next idea !"
+		}
+	},
+	{
+		"title": "Story",
+		"path": "story",
+		"banner": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+	}
+]

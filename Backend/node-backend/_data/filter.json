@@ -1,0 +1,56 @@
+[
+    {
+        "name": "KAT",
+        "category": "COMEDY",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "ANG",
+        "category": "COMEDY",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "GOOD TIMES",
+        "category": "COMEDY",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "SLAPSTICK",
+        "category": "COMEDY",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "ZOMBIES",
+        "category": "HORROR",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "VAMPIRES",
+        "category": "HORROR",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "NEW YEARS",
+        "category": "SCI FI",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "LE ITALIANO",
+        "category": "SCI FI",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    },
+    {
+        "name": "TU FRANCE",
+        "category": "SCI FI",
+        "type": "storys",
+        "image": "https://kat-api.s3.us-east-2.amazonaws.com/PSX_20200706_110610.jpg"
+    }
+]
