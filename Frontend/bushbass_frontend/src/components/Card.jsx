@@ -20,12 +20,9 @@ const Card = ({
           src={`https://image.tmdb.org/t/p/w300${poster_path}`}
           alt={title}
         />
-        <p>
-          {overview.substring(0, 40) +
-            ' ... ' +
-            ' Click the poster for more info!'}
-        </p>
+        <p>{overview.substring(0, 50) + ' ... click for more '}</p>
       </Link>
+      <button onClick={() => console.log(id)}>Add to favorites</button>
     </div>
   );
 };

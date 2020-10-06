@@ -24,6 +24,12 @@ function Header() {
         <div className='search'>
           <Link to='/search'>Search</Link>
         </div>
+        <div className='register'>
+          <Link to='/register'>Register</Link>
+        </div>
+        <div className='login'>
+          <Link to='/login'>Login</Link>
+        </div>
       </nav>
     </header>
   );
