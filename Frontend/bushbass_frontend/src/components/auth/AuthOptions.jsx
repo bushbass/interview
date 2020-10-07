@@ -1,47 +1,63 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import UserContext from "../../context/UserContext";
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import UserContext from '../../context/UserContext';
 
 function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
 
   const history = useHistory();
 
-  const register = () => history.push("/register");
-  const search = () => history.push("/search");
-  const login = () => history.push("/login");
-  const home = () => history.push("/");
-  const favorites = () => history.push("/favorites");
+  const register = () => history.push('/register');
+  const search = () => history.push('/search');
+  const login = () => history.push('/login');
+  const home = () => history.push('/');
+  const favorites = () => history.push('/favorites');
   const logout = () => {
     setUserData({
       token: undefined,
-      user: undefined
+      user: undefined,
     });
-    localStorage.setItem("auth-token", "");
+    localStorage.setItem('auth-token', '');
   };
 
   return (
-    <nav>
+    <>
       {userData.user ? (
         <>
-          <span className="nav-current-user">
+          <span className='nav-current-user'>
             Current User - {userData.user.displayName}
           </span>
 
-          <button onClick={home}>Home</button>
-          <button onClick={search}>search</button>
-          <button onClick={favorites}>Show favorites</button>
-          <button onClick={logout}>Log out</button>
+          <div className='navLink' onClick={home}>
+            Home
+          </div>
+          <div className='navLink' onClick={search}>
+            search
+          </div>
+          <div className='navLink' onClick={favorites}>
+            Show favorites
+          </div>
+          <div className='navLink' onClick={logout}>
+            Log out
+          </div>
         </>
       ) : (
         <>
-          <button onClick={home}>Home</button>
-          <button onClick={search}>Search</button>
-          <button onClick={register}>Register</button>
-          <button onClick={login}>Login</button>
+          <div className='navLink' onClick={home}>
+            Home
+          </div>
+          <div className='navLink' onClick={search}>
+            Search
+          </div>
+          <div className='navLink' onClick={register}>
+            Register
+          </div>
+          <div className='navLink' onClick={login}>
+            Login
+          </div>
         </>
       )}
-    </nav>
+    </>
   );
 }
 
