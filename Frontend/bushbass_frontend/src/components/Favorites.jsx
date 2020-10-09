@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import UserContext from '../context/UserContext';
-import { useHistory, Link, useParams } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);

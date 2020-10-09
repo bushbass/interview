@@ -13,7 +13,7 @@ const Card = ({
   id,
   poster_path,
 }) => {
-  const { BACKEND_URL, userData } = useContext(UserContext);
+  const { BACKEND_URL } = useContext(UserContext);
   const addFavorite = async (id) => {
     try {
       const token = localStorage.getItem('auth-token');
