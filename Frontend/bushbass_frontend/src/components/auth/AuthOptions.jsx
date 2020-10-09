@@ -1,17 +1,10 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserContext from '../../context/UserContext';
 
 function AuthOptions() {
   const { userData, setUserData } = useContext(UserContext);
 
-  const history = useHistory();
-
-  const register = () => history.push('/register');
-  const search = () => history.push('/search');
-  const login = () => history.push('/login');
-  const home = () => history.push('/');
-  const favorites = () => history.push('/favorites');
   const logout = () => {
     setUserData({
       token: undefined,
@@ -24,37 +17,22 @@ function AuthOptions() {
     <>
       {userData.user ? (
         <>
-          <span className='nav-current-user'>
-            Current User - {userData.user.displayName}
-          </span>
-
-          <div className='navLink' onClick={home}>
-            Home
-          </div>
-          <div className='navLink' onClick={search}>
-            search
-          </div>
-          <div className='navLink' onClick={favorites}>
-            Show favorites
-          </div>
-          <div className='navLink' onClick={logout}>
-            Log out
-          </div>
+          <Link to='/'>Home</Link>
+          <Link to='/search'>Search</Link>
+          <Link to='/favorites'>Favorites</Link>
+          <Link to='/' onClick={logout}>
+            Logout
+          </Link>
         </>
       ) : (
         <>
-          <div className='navLink' onClick={home}>
-            Home
-          </div>
-          <div className='navLink' onClick={search}>
-            Search
-          </div>
-          <div className='navLink' onClick={register}>
-            Register
-          </div>
-          <div className='navLink' onClick={login}>
-            Login
-          </div>
+          <Link to='/'>Home</Link>
+
+          <Link to='/search'>Search</Link>
+
+          <Link to='/register'>Register</Link>
+
+          <Link to='/login'>Login</Link>
         </>
       )}
     </>
