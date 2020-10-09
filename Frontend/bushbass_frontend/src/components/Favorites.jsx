@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import UserContext from '../context/UserContext';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link, useParams } from 'react-router-dom';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -27,42 +27,29 @@ function Favorites() {
     if (!userData.user) history.push('/login');
   });
 
-  // //delete todo
-  // const deleteTodo = async (id) => {
-  //   try {
-  //     const token = localStorage.getItem("auth-token");
-
-  //     await Axios.delete(`${BACKEND_URL}/todos/${id}`, {
-  //       headers: {
-  //         "x-auth-token": token
-  //       }
-  //     });
-  // setRenderToggle(!renderToggle);
-  // } catch (err) {
-  //   console.log(err);
-  // }
-  // };
+  const deleteTodo = () => console.log('delete! coming soon');
 
   return (
     <div className='page'>
+      {console.log(favorites)}
       <h2>My Favorites</h2>
-      {/* <ul>
+      <ul>
         {favorites.map((favorite) => {
           return (
-            <Link key={favorite._id} to={`/todo/${favorite._id}`}>
-              <li className="favorite-show-all">
-                {favorite.title}
+            <div key={favorite._id}>
+              <li className='favorite-show-all'>
+                <Link to={`/${favorite.movieId}`}> {favorite.movieId}</Link>
                 <button
                   onClick={() => deleteTodo(favorite._id)}
-                  className="delete-button"
+                  className='delete-button'
                 >
-                  X
+                  XXXXXX
                 </button>
               </li>
-            </Link>
+            </div>
           );
         })}
-      </ul> */}
+      </ul>
     </div>
   );
 }

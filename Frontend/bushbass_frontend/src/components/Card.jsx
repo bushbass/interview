@@ -14,15 +14,23 @@ const Card = ({
   poster_path,
 }) => {
   const { BACKEND_URL, userData } = useContext(UserContext);
-
   const addFavorite = async (id) => {
     try {
-      const addFavoriteResponse = await Axios.post(`${BACKEND_URL}/favorites`, {
-        movieId: id,
-      });
+      const token = localStorage.getItem('auth-token');
+      const addFavoriteResponse = await Axios.post(
+        `${BACKEND_URL}/favorites`,
+        {
+          movieId: id,
+        },
+        {
+          headers: {
+            'x-auth-token': token,
+          },
+        }
+      );
       console.log(addFavoriteResponse);
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
     }
   };
 
