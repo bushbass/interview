@@ -1,28 +1,31 @@
 import Axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './card.css';
+import UserContext from '../context/UserContext';
 
-const addFavorite = async (id) => {
-  try {
-    const addFavoriteResponse = await Axios.post(`${BACKEND_URL}/favorites`, {
-      movieId: id,
-    });
-    console.log(addFavoriteResponse);
-  } catch (err) {
-    console.log(err);
-  }
-};
+import './card.css';
 
 const Card = ({
   title,
   overview,
-  BACKEND_URL,
   vote_average,
   popularity,
   id,
   poster_path,
 }) => {
+  const { BACKEND_URL, userData } = useContext(UserContext);
+
+  const addFavorite = async (id) => {
+    try {
+      const addFavoriteResponse = await Axios.post(`${BACKEND_URL}/favorites`, {
+        movieId: id,
+      });
+      console.log(addFavoriteResponse);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className='card'>
       <Link to={`/${id}`}>
@@ -35,7 +38,7 @@ const Card = ({
         />
         <p>{overview.substring(0, 50) + ' ... click for more '}</p>
       </Link>
-      <button onClick={addFavorite(id)}>Add to favorites</button>
+      <button onClick={() => addFavorite(id)}>Add to favorites</button>
     </div>
   );
 };

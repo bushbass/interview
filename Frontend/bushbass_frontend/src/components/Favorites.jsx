@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useContext } from "react";
-import Axios from "axios";
-import UserContext from "../context/UserContext";
-import { useHistory, Link } from "react-router-dom";
+import React, { useState, useEffect, useContext } from 'react';
+import Axios from 'axios';
+import UserContext from '../context/UserContext';
+import { useHistory } from 'react-router-dom';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const { BACKEND_URL, userData } = useContext(UserContext);
   const history = useHistory();
-  const [renderToggle, setRenderToggle] = useState(true);
+  // const [renderToggle, setRenderToggle] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const token = localStorage.getItem("auth-token");
+      const token = localStorage.getItem('auth-token');
       const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
         headers: {
-          "x-auth-token": token
-        }
+          'x-auth-token': token,
+        },
       });
 
       setFavorites(getAllResponse.data);
     }
     fetchData();
-  }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
+  }, [BACKEND_URL]); // Or [] if effect doesn't need props or state
 
   useEffect(() => {
-    if (!userData.user) history.push("/login");
+    if (!userData.user) history.push('/login');
   });
 
   // //delete todo
@@ -44,7 +44,7 @@ function Favorites() {
   // };
 
   return (
-    <div className="page">
+    <div className='page'>
       <h2>My Favorites</h2>
       {/* <ul>
         {favorites.map((favorite) => {
