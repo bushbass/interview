@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './header.css';
+
 import netflixN from './netflixN.png';
 import netflixNoN from './netflixLogo-noN.png';
 import AuthOptions from './auth/AuthOptions';
