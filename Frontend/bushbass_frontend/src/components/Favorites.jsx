@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
+import './favorites.css';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -48,7 +49,7 @@ function Favorites() {
       {favorites.length > 0 ? (
         <>
           <h2>My Favorites</h2>
-          <ul>
+          <ul className='favorites-list'>
             {favorites.map((favorite) => {
               return (
                 <div key={favorite._id}>
