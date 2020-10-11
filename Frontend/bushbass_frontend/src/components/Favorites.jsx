@@ -38,7 +38,7 @@ function Favorites() {
           return (
             <div key={favorite._id}>
               <li className='favorite-show-all'>
-                <Link to={`/${favorite.movieId}`}> {favorite.movieId}</Link>
+                <Link to={`/${favorite.movieId}`}> {favorite.movieTitle}</Link>
                 <button
                   onClick={() => deleteTodo(favorite._id)}
                   className='delete-button'
