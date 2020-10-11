@@ -20,8 +20,8 @@ export default function App() {
   });
 
   const [BACKEND_URL] = useState(
-    // `https://hackclub-movie-backend.herokuapp.com` || "http://localhost:5000"
-    'http://localhost:5000'
+    `https://hackclub-movie-backend.herokuapp.com` || 'http://localhost:5000'
+    // 'http://localhost:5000'
   );
 
   useEffect(() => {
