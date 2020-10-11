@@ -7,27 +7,45 @@ function Favorites() {
   const [favorites, setFavorites] = useState([]);
   const { BACKEND_URL, userData } = useContext(UserContext);
   const history = useHistory();
-  // const [renderToggle, setRenderToggle] = useState(true);
+  const [renderToggle, setRenderToggle] = useState(true);
 
-  useEffect(() => {
-    async function fetchData() {
-      const token = localStorage.getItem('auth-token');
-      const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
-        headers: {
-          'x-auth-token': token,
-        },
-      });
+  useEffect(
+    () => {
+      async function fetchData() {
+        const token = localStorage.getItem('auth-token');
+        const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
+          headers: {
+            'x-auth-token': token,
+          },
+        });
 
-      setFavorites(getAllResponse.data);
-    }
-    fetchData();
-  }, [BACKEND_URL]); // Or [] if effect doesn't need props or state
+        setFavorites(getAllResponse.data);
+      }
+      fetchData();
+    },
+    [BACKEND_URL],
+    renderToggle
+  ); // Or [] if effect doesn't need props or state
 
   useEffect(() => {
     if (!userData.user) history.push('/login');
   });
 
-  const deleteTodo = () => console.log('delete! coming soon');
+  //delete favorite
+  const deleteFavorite = async (id) => {
+    try {
+      const token = localStorage.getItem('auth-token');
+      console.log(id);
+      await Axios.delete(`${BACKEND_URL}/favorites/${id}`, {
+        headers: {
+          'x-auth-token': token,
+        },
+      });
+      setRenderToggle(!renderToggle);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className='page'>
@@ -40,10 +58,10 @@ function Favorites() {
               <li className='favorite-show-all'>
                 <Link to={`/${favorite.movieId}`}> {favorite.movieTitle}</Link>
                 <button
-                  onClick={() => deleteTodo(favorite._id)}
+                  onClick={() => deleteFavorite(favorite._id)}
                   className='delete-button'
                 >
-                  XXXXXX
+                  X
                 </button>
               </li>
             </div>
