@@ -9,23 +9,19 @@ function Favorites() {
   const history = useHistory();
   const [renderToggle, setRenderToggle] = useState(true);
 
-  useEffect(
-    () => {
-      async function fetchData() {
-        const token = localStorage.getItem('auth-token');
-        const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
-          headers: {
-            'x-auth-token': token,
-          },
-        });
+  useEffect(() => {
+    async function fetchData() {
+      const token = localStorage.getItem('auth-token');
+      const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
+        headers: {
+          'x-auth-token': token,
+        },
+      });
 
-        setFavorites(getAllResponse.data);
-      }
-      fetchData();
-    },
-    [BACKEND_URL],
-    renderToggle
-  ); // Or [] if effect doesn't need props or state
+      setFavorites(getAllResponse.data);
+    }
+    fetchData();
+  }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
 
   useEffect(() => {
     if (!userData.user) history.push('/login');
@@ -49,25 +45,36 @@ function Favorites() {
 
   return (
     <div className='page'>
-      {console.log(favorites)}
-      <h2>My Favorites</h2>
-      <ul>
-        {favorites.map((favorite) => {
-          return (
-            <div key={favorite._id}>
-              <li className='favorite-show-all'>
-                <Link to={`/${favorite.movieId}`}> {favorite.movieTitle}</Link>
-                <button
-                  onClick={() => deleteFavorite(favorite._id)}
-                  className='delete-button'
-                >
-                  X
-                </button>
-              </li>
-            </div>
-          );
-        })}
-      </ul>
+      {favorites.length > 0 ? (
+        <>
+          <h2>My Favorites</h2>
+          <ul>
+            {favorites.map((favorite) => {
+              return (
+                <div key={favorite._id}>
+                  <li className='favorite-show-all'>
+                    <Link to={`/${favorite.movieId}`}>
+                      {' '}
+                      {favorite.movieTitle}
+                    </Link>
+                    <button
+                      onClick={() => deleteFavorite(favorite._id)}
+                      className='delete-button'
+                    >
+                      X
+                    </button>
+                  </li>
+                </div>
+              );
+            })}
+          </ul>
+        </>
+      ) : (
+        <div>
+          <h2>No favorites selected</h2>
+          <p>Go back and pick your favorites!</p>
+        </div>
+      )}
     </div>
   );
 }
