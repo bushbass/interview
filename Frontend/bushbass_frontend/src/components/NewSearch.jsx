@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import UserContext from "../context/UserContext";
-import { useHistory } from "react-router-dom";
+import { useHistory , Link} from "react-router-dom";
 import "./favorites.css";
-
+import Card from './Card'
 function Favorites() {
   const [inputText, setInputText] = useState("");
   const { userData } = useContext(UserContext);
@@ -34,8 +34,8 @@ function Favorites() {
       {searchResults.map((movie) => console.log(movie))}
       {searchResults.map((movie) => (
         <div>
-          {movie.original_title} - {movie.id}
-        </div>
+          <Link to={`/${movie.id}`}> {movie.original_title} - {movie.id}
+       </Link> </div>
       ))}
     </div>
   );
