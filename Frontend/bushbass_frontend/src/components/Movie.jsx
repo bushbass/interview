@@ -75,7 +75,10 @@ function Movie() {
         </div>
         <div className='single-movie-overview-container'>
           <p className='single-movie-overview'>{currentMovie.overview}</p>
-          <button onClick={() => addFavorite(id, currentMovie.title)}>
+          <button
+            className='addFavoriteButton'
+            onClick={() => addFavorite(id, currentMovie.title)}
+          >
             Add to favorites
           </button>
         </div>

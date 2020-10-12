@@ -21,7 +21,7 @@ const Card = ({
         `${BACKEND_URL}/favorites`,
         {
           movieId: id,
-          movieTitle:title,
+          movieTitle: title,
         },
         {
           headers: {
@@ -47,7 +47,12 @@ const Card = ({
         />
         <p>{overview.substring(0, 50) + ' ... click for more '}</p>
       </Link>
-      <button onClick={() => addFavorite(id,title)}>Add to favorites</button>
+      <button
+        className='addFavoriteButton'
+        onClick={() => addFavorite(id, title)}
+      >
+        Add to favorites
+      </button>
     </div>
   );
 };
