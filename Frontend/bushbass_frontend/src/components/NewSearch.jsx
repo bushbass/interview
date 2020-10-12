@@ -20,7 +20,7 @@ function Favorites() {
 
   return (
     <div className='page'>
-      <h2> New search</h2>
+      <h2>New search</h2>
       <form onSubmit={submitForm}>
         <input
           type='text'
