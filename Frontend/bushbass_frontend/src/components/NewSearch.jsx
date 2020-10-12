@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import UserContext from "../context/UserContext";
-import { useHistory , Link} from "react-router-dom";
-import "./favorites.css";
-import Card from './Card'
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from '../context/UserContext';
+import { useHistory, Link } from 'react-router-dom';
+import './favorites.css';
 function Favorites() {
-  const [inputText, setInputText] = useState("");
+  const [inputText, setInputText] = useState('');
   const { userData } = useContext(UserContext);
   const [searchResults, setSearchResults] = useState([]);
   const history = useHistory();
@@ -16,15 +15,15 @@ function Favorites() {
     ).then((res) => res.json().then((data) => setSearchResults(data.results)));
   };
   useEffect(() => {
-    if (!userData.user) history.push("/login");
+    if (!userData.user) history.push('/login');
   });
 
   return (
-    <div className="page">
+    <div className='page'>
       <h2> New search</h2>
       <form onSubmit={submitForm}>
         <input
-          type="text"
+          type='text'
           value={inputText}
           onChange={(Event) => setInputText(Event.target.value)}
         />
@@ -34,8 +33,11 @@ function Favorites() {
       {searchResults.map((movie) => console.log(movie))}
       {searchResults.map((movie) => (
         <div>
-          <Link to={`/${movie.id}`}> {movie.original_title} - {movie.id}
-       </Link> </div>
+          <Link to={`/${movie.id}`}>
+            {' '}
+            {movie.original_title} - {movie.id}
+          </Link>{' '}
+        </div>
       ))}
     </div>
   );
