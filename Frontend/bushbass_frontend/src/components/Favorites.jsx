@@ -3,6 +3,7 @@ import Axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 import './favorites.css';
+import './favorites-card.css';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);
@@ -45,30 +46,28 @@ function Favorites() {
   };
 
   return (
-    <div className='page'>
+    <div className='favorites-page'>
       {favorites.length > 0 ? (
         <>
           <h2>My Favorites</h2>
-          <ul className='favorites-list'>
+          <div className='favorites-container'>
             {favorites.map((favorite) => {
               return (
-                <div key={favorite._id}>
-                  <li className='favorite-show-all'>
-                    <Link to={`/${favorite.movieId}`}>
-                      {' '}
-                      {favorite.movieTitle}
-                    </Link>
-                    <button
-                      onClick={() => deleteFavorite(favorite._id)}
-                      className='delete-button'
-                    >
-                      X
-                    </button>
-                  </li>
+                <div className='favorites-card' key={favorite._id}>
+                  <Link to={`/${favorite.movieId}`}>
+                    {' '}
+                    {favorite.movieTitle}
+                  </Link>
+                  <button
+                    onClick={() => deleteFavorite(favorite._id)}
+                    className='delete-button'
+                  >
+                    X
+                  </button>
                 </div>
               );
             })}
-          </ul>
+          </div>
         </>
       ) : (
         <div>
