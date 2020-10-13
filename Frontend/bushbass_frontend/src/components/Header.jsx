@@ -19,21 +19,7 @@ function Header() {
         Netflix
       </p>
       <nav>
-        {/* <div className="nav-item">
-          <Link to="/">Home</Link>
-        </div>
-        <div className="search">
-          <Link to="/search">Search</Link>
-        </div>
-        <div className="favorites">
-          <Link to="/favorites">favorites</Link>
-        </div>
-        <div className="register">
-          <Link to="/register">Register</Link>
-        </div>
-        <div className="login">
-          <Link to="/login">Login</Link>
-        </div> */}
+       
         <AuthOptions />
       </nav>
     </header>

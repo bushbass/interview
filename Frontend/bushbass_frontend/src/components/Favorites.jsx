@@ -3,7 +3,6 @@ import Axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 import './favorites.css';
-import './favorites-card.css';
 
 function Favorites() {
   const [favorites, setFavorites] = useState([]);

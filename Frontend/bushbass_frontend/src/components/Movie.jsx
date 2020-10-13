@@ -38,22 +38,7 @@ function Movie() {
       console.log(err.message);
     }
   };
-  // return (
-  //   <div className='single-movie-card'>
-  //     <h2>
-  //       {currentMovie.title} -{' '}
-  //       {currentMovie.release_date
-  //         ? currentMovie.release_date.substring(0, 4)
-  //         : currentMovie.release_date}
-  //     </h2>
-  //     <img
-  //       src={`https://image.tmdb.org/t/p/w300${currentMovie.poster_path}`}
-  //       alt={currentMovie.title}
-  //     />
-  //     <p>{currentMovie.overview}</p>
-  //     <button onClick={() => addFavorite(id,currentMovie.title)}>Add to favorites</button>
-  //   </div>
-  // );
+
 
   return (
     <div className='single-movie-card-container'>
