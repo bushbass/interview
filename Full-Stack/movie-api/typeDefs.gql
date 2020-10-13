@@ -1,0 +1,13 @@
+type Query {
+  getMovieDetails(id: Int!): MovieDetails!
+  getPopularMovies: [MovieDetails!]!
+}
+
+type MovieDetails {
+  id: Int!
+  title: String!
+  vote_average: Float
+  overview: String
+  release_date: String!
+  poster_path: String!
+}
