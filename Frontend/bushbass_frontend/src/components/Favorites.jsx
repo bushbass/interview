@@ -5,24 +5,25 @@ import { useHistory, Link } from 'react-router-dom';
 import './favorites.css';
 
 function Favorites() {
-  const [favorites, setFavorites] = useState([]);
-  const { BACKEND_URL, userData } = useContext(UserContext);
+  const { BACKEND_URL, userData, favorites, setFavorites } = useContext(
+    UserContext
+  );
   const history = useHistory();
   const [renderToggle, setRenderToggle] = useState(true);
 
-  useEffect(() => {
-    async function fetchData() {
-      const token = localStorage.getItem('auth-token');
-      const getFavoritesResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
-        headers: {
-          'x-auth-token': token,
-        },
-      });
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const token = localStorage.getItem('auth-token');
+  //     const getFavoritesResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
+  //       headers: {
+  //         'x-auth-token': token,
+  //       },
+  //     });
 
-      setFavorites(getFavoritesResponse.data);
-    }
-    fetchData();
-  }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
+  //     setFavorites(getFavoritesResponse.data);
+  //   }
+  //   fetchData();
+  // }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
 
   useEffect(() => {
     if (!userData.user) history.push('/login');

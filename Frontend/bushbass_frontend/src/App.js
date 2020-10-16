@@ -14,6 +14,7 @@ import Favorites from './components/Favorites';
 
 export default function App() {
   const [movieList, setMovieList] = useState([]);
+  const [favorites, setFavorites] = useState([]);
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -24,6 +25,7 @@ export default function App() {
     // 'http://localhost:5000'
   );
 
+  // GET TOP 20 MOVIES LIST
   useEffect(() => {
     fetch(
       'https://api.themoviedb.org/3/movie/popular?api_key=dff2ace9d4fe143fc9aad06522638b5c'
@@ -32,6 +34,22 @@ export default function App() {
       .then((data) => setMovieList(data.results));
   }, []);
 
+  // GET FAVORITES
+  useEffect(() => {
+    async function fetchData() {
+      const token = localStorage.getItem('auth-token');
+      const getFavoritesResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
+        headers: {
+          'x-auth-token': token,
+        },
+      });
+
+      setFavorites(getFavoritesResponse.data);
+    }
+    fetchData();
+  }, [BACKEND_URL]); // Or [] if effect doesn't need props or state
+
+  // CHECK FOR LOGGED IN USER
   useEffect(() => {
     const checkLoggedIn = async () => {
       let token = localStorage.getItem('auth-token');
@@ -53,9 +71,12 @@ export default function App() {
     };
     checkLoggedIn();
   }, [BACKEND_URL]);
+
   return (
     <Router>
-      <UserContext.Provider value={{ userData, setUserData, BACKEND_URL }}>
+      <UserContext.Provider
+        value={{ favorites, setFavorites, userData, setUserData, BACKEND_URL }}
+      >
         <div className='App'>
           <Header />
           {!userData.user ? (
