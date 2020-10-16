@@ -13,13 +13,13 @@ function Favorites() {
   useEffect(() => {
     async function fetchData() {
       const token = localStorage.getItem('auth-token');
-      const getAllResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
+      const getFavoritesResponse = await Axios.get(`${BACKEND_URL}/favorites`, {
         headers: {
           'x-auth-token': token,
         },
       });
 
-      setFavorites(getAllResponse.data);
+      setFavorites(getFavoritesResponse.data);
     }
     fetchData();
   }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
