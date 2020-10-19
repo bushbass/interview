@@ -32,7 +32,7 @@ function Favorites() {
   const deleteFavorite = async (id) => {
     try {
       const token = localStorage.getItem('auth-token');
-      console.log(id);
+      
       await Axios.delete(`${BACKEND_URL}/favorites/${id}`, {
         headers: {
           'x-auth-token': token,
