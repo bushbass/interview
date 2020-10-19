@@ -14,9 +14,7 @@ function Favorites() {
     e.preventDefault();
     fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=dff2ace9d4fe143fc9aad06522638b5c&language=en-US&query=${inputText}&page=1&include_adult=false`
-    )
-    .then((res) => res.json()
-    .then((data) => setSearchResults(data.results)));
+    ).then((res) => res.json().then((data) => setSearchResults(data.results)));
   };
   useEffect(() => {
     if (!userData.user) history.push('/login');
@@ -31,16 +29,12 @@ function Favorites() {
           value={inputText}
           onChange={(Event) => setInputText(Event.target.value)}
         />
-        <button className="search-button">Submit</button>
+        <button className='search-button'>Submit</button>
       </form>
 
-   
       {searchResults.map((movie) => (
         <div key={movie.id}>
-          <Link to={`/${movie.id}`}>
-            {' '}
-            {movie.original_title} - {movie.id}
-          </Link>{' '}
+          <Link to={`/${movie.id}`}>{movie.original_title}</Link>
         </div>
       ))}
     </div>
