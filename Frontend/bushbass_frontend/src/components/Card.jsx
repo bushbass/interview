@@ -44,6 +44,7 @@ const Card = ({
           },
         }
       );
+      console.log(addFavoriteResponse);
       setRenderToggle(!renderToggle);
     } catch (err) {
       console.log(err.message);
