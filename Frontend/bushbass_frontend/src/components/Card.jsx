@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import React, { useContext, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
 import './card.css';
@@ -13,9 +13,11 @@ const Card = ({
   id,
   poster_path,
 }) => {
-  const { BACKEND_URL } = useContext(UserContext);
+  const { BACKEND_URL, userData } = useContext(UserContext);
   const [favorites, setFavorites] = useState([]);
   const [renderToggle, setRenderToggle] = useState(true);
+  const history = useHistory();
+  const handleLoginButton = () => history.push('/login');
   useEffect(() => {
     async function fetchData() {
       const token = localStorage.getItem('auth-token');
@@ -63,19 +65,44 @@ const Card = ({
         />
         <p>{overview.substring(0, 50) + ' ... click for more '}</p>
       </Link>
-
-      {favorites.some((fave) => fave.movieId === id.toString()) ? (
-        <button className='addFavoriteButton'>Already in favorites</button>
+      {userData.user ? (
+        <LoggedInCardButton
+          addFavorite={addFavorite}
+          favorites={favorites}
+          id={id}
+          title={title}
+        />
       ) : (
-        <button
-          className='addFavoriteButton'
-          onClick={() => addFavorite(id, title)}
-        >
-          Add to favorites{' '}
-        </button>
+        <LoggedOutCardButton handleLoginButton={handleLoginButton} />
       )}
     </div>
   );
 };
 
 export default Card;
+
+function LoggedInCardButton({ favorites, id, addFavorite, title }) {
+  return (
+    <>
+      {favorites.some((fave) => fave.movieId === id.toString()) ? (
+        <button className='addFavoriteButton'>Already in favorites</button>
+      ) : (
+        <button
+          className='addFavoriteButton'
+          onClick={() => addFavorite(id, title, addFavorite)}
+        >
+          Add to favorites{' '}
+        </button>
+      )}
+    </>
+  );
+}
+function LoggedOutCardButton({ handleLoginButton }) {
+  return (
+    <div>
+      <button onClick={handleLoginButton} className='addFavoriteButton'>
+        Log In to add favorites
+      </button>
+    </div>
+  );
+}
