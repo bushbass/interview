@@ -4,17 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 To run it -
 
-1. clone and enter the directory
-1. npm install
-1. npm start
+1. clone the repo and enter the directory
+1. run npm install
+1. run npm start
 1. browser will open on port 3000
 
 ## Demo
 
-Here is a link to a [Working Demo](https://loving-gates-f04ef5.netlify.app)<br />
-
-I made some adjustments to the original. Mainly the formatting of the individual movie card page
-[Updated Demo](https://cranky-morse-fe63dc.netlify.app/)
+Here is a link to a [Working Demo](https://zetflix.netlify.app)<br />
 
 ## Available Scripts
 
